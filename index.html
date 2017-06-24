@@ -15,9 +15,21 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="chart.js"></script>
     <style>
-        /*#tooltip {
-            content: attr(title);
-        }*/
+        .svg-container {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            /*padding-bottom: 100%;*/
+            vertical-align: top;
+            overflow: hidden;
+        }
+
+        .svg-content {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 
@@ -25,6 +37,8 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div id="container" class="svg-container">
+    </div>
     <script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"></script>
 </body>
 
