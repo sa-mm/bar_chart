@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', contentLoadedCb)
 
-function contentLoadedCb (req) {
+function contentLoadedCb(req) {
   const url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json'
   req = new XMLHttpRequest()
   req.open('GET', url, true)
@@ -11,7 +11,7 @@ function contentLoadedCb (req) {
   }
 }
 
-function chartIt (json) {
+function chartIt(json) {
   const dataset = json.data
 
   var w = 800
@@ -64,10 +64,10 @@ function chartIt (json) {
 
   // Make it responsive
   var svg = d3.select('div#container')
-              .append('svg')
-              .attr('preserveAspectRation', 'xMinYMin meet')
-              .attr('viewBox', '0 0 ' + w + ' ' + h)
-              .attr('id', 'title')
+    .append('svg')
+    .attr('preserveAspectRation', 'xMinYMin meet')
+    .attr('viewBox', '0 0 ' + w + ' ' + h)
+    .classed('svg-content', true)
 
   svg.selectAll('rect')
     .data(mungedDataset)
@@ -108,13 +108,14 @@ function chartIt (json) {
     .attr('text-anchor', 'middle')
     .style('font-size', '20px')
     .text('U.S. GDP')
+    .attr('id', 'title')
 
   svg.append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('y', 0)
-      .attr('x', 0 - (h / 2))
-      .attr('dy', '1em')
-      .style('text-anchor', 'middle')
-      .text('Billions of Dollars')
-      .attr('id', 'y-axis-label')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', 0)
+    .attr('x', 0 - (h / 2))
+    .attr('dy', '1em')
+    .style('text-anchor', 'middle')
+    .text('Billions of Dollars')
+    .attr('id', 'y-axis-label')
 }
